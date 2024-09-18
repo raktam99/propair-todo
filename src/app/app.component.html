@@ -1,5 +1,13 @@
-<div class="d-flex flex-column align-items-center w-100 h-100 p-2">
-  <h1>My TODO app</h1>
+<div id="maindiv" class="d-flex flex-column align-items-center w-100 h-100 p-2">
+  <div class="d-flex w-100 gap-4">
+    <button
+      class="btn btn-success d-flex align-items-center"
+      (click)="navigateHome()"
+    >
+      <i class="fa fa-home"></i>
+    </button>
+    <h1>My TODO app</h1>
+  </div>
   <hr class="w-100" />
   <router-outlet></router-outlet>
 </div>

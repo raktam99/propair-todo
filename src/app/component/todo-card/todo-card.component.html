@@ -11,17 +11,19 @@
         >Due on: {{ element?.dueDate?.toDateString() }}</span
       >
     </div>
+    @if (!element?.isCompleted) {
     <div class="d-flex h-50 ms-auto gap-2">
       <button class="btn btn btn-outline-success">
         <i class="fa fa-check"></i>
       </button>
-      <button class="btn btn-warning">
+      <button class="btn btn-warning" (click)="editTodo()">
         <i class="fa fa-edit"></i>
       </button>
       <button class="btn btn-danger">
         <i class="fa fa-trash"></i>
       </button>
     </div>
+    }
   </div>
 
   <p class="my-0 p-2">
@@ -30,5 +32,9 @@
 
   <hr class="w-100 mt-0 mb-1" />
 
+  @if (!element?.isCompleted) {
   <i class="fa fa-clock ms-auto"></i>
+  } @else {
+  <i class="fa fa-check ms-auto"></i>
+  }
 </div>
