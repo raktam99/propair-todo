@@ -6,7 +6,7 @@
     id="create-page-card"
     class="d-flex flex-column border border-dark-subtle shadow-lg rounded-2 w-50 p-3 gap-3"
   >
-    <h3 class="text-center">Create a todo</h3>
+    <h3 class="text-center">Add a task</h3>
     <hr class="w-100 mt-0" />
     <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
       <label for="title" class="form-label">Title:</label>
@@ -62,7 +62,7 @@
       <input
         type="submit"
         class="btn btn-secondary mt-4 w-100"
-        value="Create todo"
+        value="Add task"
         [disabled]="todoForm.invalid"
       />
     </form>

@@ -26,11 +26,11 @@
     }
   </div>
 
-  <p class="my-0 p-2">
+  <p class="my-2 px-4">
+    @if (element?.description) {
     {{ element?.description }}
+    } @else { No description for this task. }
   </p>
-
-  <hr class="w-100 mt-0 mb-1" />
 
   <i
     class="fa ms-auto"
