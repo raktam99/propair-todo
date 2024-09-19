@@ -1,10 +1,12 @@
 #maindiv {
-  /*background-image: linear-gradient(
-    to bottom right,
-    rgba(255, 228, 196, 0.2),
-    rgba(255, 228, 196, 0.7)
-  );*/
+  //background-image: url("https://png.pngtree.com/background/20230415/original/pngtree-colorful-pastel-drawing-paper-texture-watercolor-background-picture-image_2443110.jpg");
 
-  background-image: url("https://png.pngtree.com/background/20230415/original/pngtree-colorful-pastel-drawing-paper-texture-watercolor-background-picture-image_2443110.jpg");
-  background-size: cover;
+  background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjUzNy1udW5vb24tMDIuanBn.jpg");
+
+  background-size: auto;
+}
+
+#navbar {
+  background-color: rgba(250, 235, 215, 0.3);
+  backdrop-filter: blur(2px);
 }

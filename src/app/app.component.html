@@ -1,5 +1,5 @@
-<div id="maindiv" class="d-flex flex-column align-items-center w-100 h-100 p-2">
-  <div class="d-flex w-100 gap-4">
+<div id="maindiv" class="d-flex flex-column align-items-center w-100 h-100">
+  <div id="navbar" class="d-flex w-100 gap-4 mb-4 p-2 shadow-sm">
     <h1>My TODO app</h1>
     <button class="btn btn-success btn-lg ms-auto" (click)="navigateHome()">
       <i class="fa fa-home"></i>
@@ -8,6 +8,5 @@
       <i class="fa fa-trash"></i>
     </button>
   </div>
-  <hr class="w-100" />
   <router-outlet></router-outlet>
 </div>
