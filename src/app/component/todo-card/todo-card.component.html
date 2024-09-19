@@ -7,9 +7,9 @@
       <div class="d-flex gap-4">
         <h4>{{ element?.title }}</h4>
       </div>
-      <span class="text-muted text-sm-start"
-        >Due on: {{ formatDate(element?.dueDate!) }}</span
-      >
+      <span class="text-muted text-sm-start">{{
+        formatDate(element?.dueDate!)
+      }}</span>
     </div>
     @if (!element?.isCompleted) {
     <div class="d-flex h-50 ms-auto gap-2">
@@ -32,9 +32,11 @@
 
   <hr class="w-100 mt-0 mb-1" />
 
-  @if (!element?.isCompleted) {
-  <i class="fa fa-clock ms-auto"></i>
-  } @else {
-  <i class="fa fa-check ms-auto"></i>
-  }
+  <i
+    class="fa ms-auto"
+    [ngClass]="{
+      'fa-clock': !element?.isCompleted,
+      'fa-check': element?.isCompleted
+    }"
+  ></i>
 </div>

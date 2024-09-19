@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { TodoServiceService } from './service/todo-service.service';
 import { ToDo } from './model/todo';
@@ -23,6 +23,11 @@ export class AppComponent {
     const data: ToDo[] = stringData ? JSON.parse(stringData) : [];
 
     this.todoService.initializeTodos(data);
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any): void {
+    this.todoService.saveTodos();
   }
 
   navigateHome() {

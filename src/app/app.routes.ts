@@ -13,7 +13,7 @@ export const routes: Routes = [
     component: CreateTodoPageComponent,
   },
   {
-    path: 'edit',
+    path: 'edit/:index',
     component: EditTodoPageComponent,
   },
   {

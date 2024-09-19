@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { ToDo } from '../../model/todo';
 import { Router } from '@angular/router';
 import { TodoServiceService } from '../../service/todo-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './todo-card.component.html',
   styleUrl: './todo-card.component.scss',
 })
@@ -19,7 +20,8 @@ export class TodoCardComponent {
   ) {}
 
   editTodo() {
-    this.router.navigate(['/edit']);
+    const index = this.todoService.findIndex(this.element!);
+    this.router.navigate(['/edit', index]);
   }
 
   formatDate(date: Date) {

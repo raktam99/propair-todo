@@ -1,1 +1,54 @@
-<p>edit-todo-page works!</p>
+<div
+  class="d-flex justify-content-center overflow-hidden"
+  style="width: 80vw; height: 85vh"
+>
+  <div
+    id="edit-page-card"
+    class="d-flex flex-column border border-dark-subtle shadow-lg rounded-2 w-50 p-3 gap-3 overflow-y-auto"
+  >
+    <h3 class="text-center">Edit todo</h3>
+    <hr class="w-100 mt-0" />
+    <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+      <label for="title" class="form-label">Title:</label><br />
+      <input
+        type="text"
+        id="title"
+        name="title"
+        required
+        [ngModel]="element?.title"
+        class="ms-2 form-control"
+        ngModel
+        #title="ngModel"
+      /><br />
+      <label for="dueDate" class="form-label">Due date:</label><br />
+      <input
+        type="date"
+        id="dueDate"
+        name="dueDate"
+        required
+        [ngModel]="formatDate()"
+        class="ms-2 form-control"
+        ngModel
+        #dueDate="ngModel"
+      /><br />
+      <label for="description" class="form-label">Description:</label><br />
+      <textarea
+        id="description"
+        name="description"
+        form="createForm"
+        maxlength="200"
+        [ngModel]="element?.description"
+        class="ms-2 form-control"
+        ngModel
+        #description="ngModel"
+      ></textarea
+      ><br />
+      <input
+        type="submit"
+        class="btn btn-secondary mt-4 w-100"
+        value="Update todo"
+        [disabled]="editForm.invalid"
+      />
+    </form>
+  </div>
+</div>
