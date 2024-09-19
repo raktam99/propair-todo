@@ -5,50 +5,67 @@
   <div
     id="edit-page-card"
     class="d-flex flex-column border border-dark-subtle shadow-lg rounded-2 w-50 p-3 gap-3"
-    style="max-height: 85vh"
   >
     <h3 class="text-center">Edit todo</h3>
     <hr class="w-100 mt-0" />
-    <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
-      <label for="title" class="form-label">Title:</label><br />
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <label for="title" class="form-label">Title:</label>
       <input
         type="text"
         id="title"
-        name="title"
-        required
-        [ngModel]="element?.title"
+        formControlName="title"
         class="ms-2 form-control"
-        ngModel
-        #title="ngModel"
-      /><br />
-      <label for="dueDate" class="form-label">Due date:</label><br />
+        placeholder="Enter a title here..."
+        maxlength="40"
+        [ngModel]="element?.title"
+      />
+      <div
+        *ngIf="
+          todoForm.controls['title'].invalid &&
+          todoForm.controls['title'].touched
+        "
+        class="text-danger ms-2"
+      >
+        Title is required.
+      </div>
+      <br />
+
+      <label for="dueDate" class="form-label">Due date:</label>
       <input
         type="date"
         id="dueDate"
-        name="dueDate"
-        required
-        [ngModel]="formatDate()"
+        formControlName="dueDate"
         class="ms-2 form-control"
-        ngModel
-        #dueDate="ngModel"
-      /><br />
-      <label for="description" class="form-label">Description:</label><br />
+        [ngModel]="formatDate()"
+      />
+      <div
+        *ngIf="
+          todoForm.controls['dueDate'].invalid &&
+          todoForm.controls['dueDate'].touched
+        "
+        class="text-danger ms-2"
+      >
+        Due date is required and cannot be past date.
+      </div>
+      <br />
+
+      <label for="description" class="form-label">Description:</label>
       <textarea
         id="description"
-        name="description"
-        form="createForm"
+        formControlName="description"
         maxlength="200"
-        [ngModel]="element?.description"
+        rows="3"
         class="ms-2 form-control"
-        ngModel
-        #description="ngModel"
-      ></textarea
-      ><br />
+        placeholder="Description is not required"
+        [ngModel]="element?.description"
+      ></textarea>
+      <br />
+
       <input
         type="submit"
         class="btn btn-secondary mt-4 w-100"
-        value="Update todo"
-        [disabled]="editForm.invalid"
+        value="Save todo"
+        [disabled]="todoForm.invalid"
       />
     </form>
   </div>
