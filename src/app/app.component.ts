@@ -19,6 +19,8 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
+    this.router.navigate(['/main']);
+
     const stringData = localStorage.getItem('todos');
     const data: ToDo[] = stringData ? JSON.parse(stringData) : [];
 
@@ -32,5 +34,10 @@ export class AppComponent {
 
   navigateHome() {
     this.router.navigate(['/home']);
+  }
+
+  resetList() {
+    localStorage.removeItem('todos');
+    this.todoService.initializeTodos([]);
   }
 }

@@ -1,6 +1,6 @@
 <div
+  id="card-div"
   class="d-flex flex-column gap-2 border border-dark-subtle rounded-2 align-items-baseline w-100 p-2"
-  style="background-color: #00335310"
 >
   <div class="d-flex w-100">
     <div class="d-flex flex-column">
@@ -16,10 +16,10 @@
       <button class="btn btn btn-outline-success" (click)="markChecked()">
         <i class="fa fa-check"></i>
       </button>
-      <button class="btn btn-warning" (click)="editTodo()">
+      <button class="btn btn-outline-secondary" (click)="editTodo()">
         <i class="fa fa-edit"></i>
       </button>
-      <button class="btn btn-danger" (click)="deleteTodo()">
+      <button class="btn btn-outline-danger" (click)="deleteTodo()">
         <i class="fa fa-trash"></i>
       </button>
     </div>

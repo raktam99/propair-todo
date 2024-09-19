@@ -1,12 +1,12 @@
 <div id="maindiv" class="d-flex flex-column align-items-center w-100 h-100 p-2">
   <div class="d-flex w-100 gap-4">
-    <button
-      class="btn btn-success d-flex align-items-center"
-      (click)="navigateHome()"
-    >
+    <h1>My TODO app</h1>
+    <button class="btn btn-success btn-lg ms-auto" (click)="navigateHome()">
       <i class="fa fa-home"></i>
     </button>
-    <h1>My TODO app</h1>
+    <button class="btn btn-danger btn-lg" (click)="resetList()">
+      <i class="fa fa-trash"></i>
+    </button>
   </div>
   <hr class="w-100" />
   <router-outlet></router-outlet>
