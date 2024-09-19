@@ -8,18 +8,18 @@
         <h4>{{ element?.title }}</h4>
       </div>
       <span class="text-muted text-sm-start"
-        >Due on: {{ element?.dueDate?.toDateString() }}</span
+        >Due on: {{ formatDate(element?.dueDate!) }}</span
       >
     </div>
     @if (!element?.isCompleted) {
     <div class="d-flex h-50 ms-auto gap-2">
-      <button class="btn btn btn-outline-success">
+      <button class="btn btn btn-outline-success" (click)="markChecked()">
         <i class="fa fa-check"></i>
       </button>
       <button class="btn btn-warning" (click)="editTodo()">
         <i class="fa fa-edit"></i>
       </button>
-      <button class="btn btn-danger">
+      <button class="btn btn-danger" (click)="deleteTodo()">
         <i class="fa fa-trash"></i>
       </button>
     </div>

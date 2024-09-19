@@ -22,10 +22,7 @@ export class AppComponent {
     const stringData = localStorage.getItem('todos');
     const data: ToDo[] = stringData ? JSON.parse(stringData) : [];
 
-    for (const element of data) {
-      element.dueDate = new Date(element.dueDate);
-      this.todoService.addTodo(element);
-    }
+    this.todoService.initializeTodos(data);
   }
 
   navigateHome() {

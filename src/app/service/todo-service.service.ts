@@ -14,4 +14,23 @@ export class TodoServiceService {
     this.todosSubject.next([...currentTodos, newTodo]);
     localStorage.setItem('todos', JSON.stringify(this.todosSubject.value));
   }
+
+  initializeTodos(todos: ToDo[]) {
+    this.todosSubject.next(todos);
+  }
+
+  deleteTodo(todoToDelete: ToDo) {
+    let todos = this.todosSubject.value;
+    let index = todos.findIndex((todo) => todo === todoToDelete);
+    todos.splice(index, 1);
+    this.todosSubject.next(todos);
+    localStorage.setItem('todos', JSON.stringify(this.todosSubject.value));
+  }
+
+  checkTodo(todoToCheck: ToDo) {
+    let todos = this.todosSubject.value;
+    let index = todos.findIndex((todo) => todo === todoToCheck);
+    this.todosSubject.value[index].isCompleted = true;
+    localStorage.setItem('todos', JSON.stringify(this.todosSubject.value));
+  }
 }
