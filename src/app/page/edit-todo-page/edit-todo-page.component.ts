@@ -56,7 +56,7 @@ export class EditTodoPageComponent {
     }
   }
 
-  formatDate() {
-    return new Date(this.element?.dueDate!).toISOString().split('T')[0];
+  formatDate(date: Date) {
+    return new Date(date).toISOString().split('T')[0];
   }
 }

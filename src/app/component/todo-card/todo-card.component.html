@@ -11,8 +11,7 @@
         formatDate(element?.dueDate!)
       }}</span>
     </div>
-    @if (!element?.isCompleted) {
-    <div class="d-flex h-50 ms-auto gap-2">
+    <div *ngIf="!element?.isCompleted" class="d-flex h-50 ms-auto gap-2">
       <button class="btn btn btn-outline-success" (click)="markChecked()">
         <i class="fa fa-check"></i>
       </button>
@@ -23,7 +22,6 @@
         <i class="fa fa-trash"></i>
       </button>
     </div>
-    }
   </div>
 
   <p class="my-2 px-4">

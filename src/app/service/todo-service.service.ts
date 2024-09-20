@@ -28,7 +28,8 @@ export class TodoServiceService {
   checkTodo(todoToCheck: ToDo) {
     let todos = this.todosSubject.value;
     let index = todos.findIndex((todo) => todo === todoToCheck);
-    this.todosSubject.value[index].isCompleted = true;
+    todos[index].isCompleted = true;
+    this.todosSubject.next(todos);
   }
 
   findIndex(todoToFind: ToDo) {
@@ -36,7 +37,9 @@ export class TodoServiceService {
   }
 
   updateTodo(index: number, newTodo: ToDo) {
-    this.todosSubject.value[index] = newTodo;
+    let todos = this.todosSubject.value;
+    todos[index] = newTodo;
+    this.todosSubject.next(todos);
   }
 
   getTodoByIndex(index: number) {

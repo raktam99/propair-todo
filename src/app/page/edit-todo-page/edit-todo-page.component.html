@@ -36,7 +36,7 @@
         id="dueDate"
         formControlName="dueDate"
         class="ms-2 form-control"
-        [ngModel]="formatDate()"
+        [ngModel]="formatDate(element?.dueDate!)"
       />
       <div
         *ngIf="
